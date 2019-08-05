@@ -28,8 +28,24 @@ public class LoginDemo {
 		
 		JButton loginButton = new JButton("Login");
 		loginButton.setBounds(100, 150, 80, 20);
+		
+		LoginDemo loginDemo = new LoginDemo();
+		loginDemo.printLoginDetails(loginButton, usernameField, passwordField);
+		
 		frame.add(loginButton);
 		
 		frame.setVisible(true);
+	}
+	
+	private void printLoginDetails(JButton loginButton, JTextField usernameField, JPasswordField passwordField) {
+		loginButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String username = usernameField.getText();
+				String password = passwordField.getText();
+				System.out.println("username: "+username+" password "+password);
+			}
+		});
 	}
 }
